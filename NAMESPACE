@@ -1,0 +1,40 @@
+export(
+       powerEpi.default,
+       powerEpi,
+       ssizeEpi.default,
+       ssizeEpi,
+       numDEpi.default,
+       numDEpi,
+       powerEpiCont.default,
+       powerEpiCont,
+       ssizeEpiCont.default,
+       ssizeEpiCont,
+       powerEpiInt.default0,
+       powerEpiInt.default1, 
+       powerEpiInt,
+       powerEpiInt2,
+       ssizeEpiInt.default0,
+       ssizeEpiInt.default1,
+       ssizeEpiInt,
+       ssizeEpiInt2,
+       powerCT.default, 
+       powerCT.default0, 
+       powerCT,
+       ssizeCT.default, 
+       ssizeCT 
+      ) 
+
+importFrom(stats,
+           qnorm,
+           pnorm,
+           rnorm,
+           cor,
+           var,
+           lm
+          )
+
+importFrom(survival,
+           survfit,
+           Surv
+          )
+

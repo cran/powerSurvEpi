@@ -1,0 +1,102 @@
+powerEpi.default        Power calculation for epidemiological studies 
+                        in survival analysis with only two covariates.
+                        The first covariate should be binary, while
+                        the second covariate can be nonbinary.
+                        (parameters provided by the user)
+powerEpi                Power calculation for epidemiological studies 
+                        in survival analysis with only two covariates.
+                        The first covariate should be binary, while
+                        the second covariate can be nonbinary. 
+                        (some parameters estimated
+                        based on a pilot data set)
+ssizeEpi.default        Sample size calculation for epidemiological studies 
+                        in survival analysis with only two covariates.
+                        The first covariate should be binary, while
+                        the second covariate can be nonbinary.
+                        (parameters provided by the user)
+ssizeEpi                Sample size calculation for epidemiological studies 
+                        in survival analysis with only two covariates.
+                        The first covariate should be binary, while
+                        the second covariate can be nonbinary. 
+                        (some parameters estimated
+                        based on a pilot data set)
+numDEpi.default         Calculating number of required deaths for 
+                        epidemiological studies in survival analysis
+                        with only two covariates. The first covariate 
+                        should be binary, while the second covariate can 
+                        be nonbinary.
+                        (parameters provided by the user)
+numDEpi                 Calculating number of required deaths for 
+                        epidemiological studies in survival analysis
+                        with only two covariates. The first covariate 
+                        should be binary, while the second covariate can 
+                        be nonbinary. (some parameters estimated based on
+                        a pilot data set)
+powerEpiCont.default    Power calculation for epidemiological studies 
+                        in survival analysis.
+                        The covariate of interests should be continuous,
+                        while other covariates can be binary or nonbinary.
+                        (parameters provided by the user)
+powerEpiCont            Power calculation for epidemiological studies 
+                        in survival analysis.
+                        The covariate of interests should be continuous,
+                        while other covariates can be binary or nonbinary.
+                        (some parameters estimated based on a pilot data set)
+ssizeEpiCont.default    Sample size calculation for epidemiological studies 
+                        in survival analysis.
+                        The covariate of interests should be continuous,
+                        while other covariates can be binary or nonbinary.
+                        (parameters provided by the user)
+ssizeEpiCont            Sample size calculation for epidemiological studies 
+                        in survival analysis.
+                        The covariate of interests should be continuous,
+                        while other covariates can be binary or nonbinary.
+                        (some parameters estimated based on a pilot data set)
+powerEpiInt.default0    Power calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters provided by the user)
+powerEpiInt.default1    Power calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters provided by the user)
+powerEpiInt             Power calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters estimated based on a pilot data set)
+powerEpiInt2            Power calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters estimated based on a pilot data set)
+ssizeEpiInt.default0    Sample size calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters provided by the user)
+ssizeEpiInt.default     Sample size calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters provided by the user)
+ssizeEpiInt             Sample size calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters estimated based on a pilot data set)
+ssizeEpiInt2            Sample size calculation testing interaction effect 
+                        for epidemiological studies in survival analysis with
+                        only two binary covariates.
+                        (parameters estimated based on a pilot data set)
+powerCT.default		Power calculation for randomized clinical 
+			trials in survival analysis (parameters provided by
+                        the user)
+powerCT.default0	Power calculation for randomized clinical 
+			trials in survival analysis (parameters provided by
+                        the user)
+powerCT			Power calculation for randomized clinical 
+			trials in survival analysis (some parameters estimated
+                        based on a pilot data set)
+ssizeCT.default		Sample size calculation for randomize clinical
+			trials in survival analysis (parameters provided by
+                        the user)
+ssizeCT			Sample size calculation for randomize clinical
+			trials in survival analysis (some parameters estimated
+                        based on a pilot data set)
+Oph			Ophthalmology data set
