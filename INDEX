@@ -99,4 +99,8 @@ ssizeCT.default		Sample size calculation for randomize clinical
 ssizeCT			Sample size calculation for randomize clinical
 			trials in survival analysis (some parameters estimated
                         based on a pilot data set)
+power.stratify		Power calculation for survival analysis with 
+			binary predictor and exponential survival function
+ssize.stratify		Sample size calculation for survival analysis with 
+			binary predictor and exponential survival function
 Oph			Ophthalmology data set

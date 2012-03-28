@@ -1,0 +1,5 @@
+# v0.0.6 March 28, 2012
+#   (1) added functions 'power.stratify' and 'ssize.stratify'
+#       to calculate power/sample size for stratified survival analysis
+#
+ 

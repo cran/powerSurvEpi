@@ -21,7 +21,9 @@ export(
        powerCT.default0, 
        powerCT,
        ssizeCT.default, 
-       ssizeCT 
+       ssizeCT,
+       power.stratify,
+       ssize.stratify
       ) 
 
 importFrom(stats,
