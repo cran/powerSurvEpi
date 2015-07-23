@@ -2,7 +2,7 @@
 \alias{ssizeEpiInt2}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ 
-Sample Size Calculation Testing Interaction Effect for Cox Proportional Hazards Regression with two covariates for Epidemiological Studies (Both covariates should be binary)
+Sample Size Calculation Testing Interaction Effect for Cox Proportional Hazards Regression
 }
 \description{
 Sample size calculation testing interaction effect for Cox proportional hazards regression with two covariates for Epidemiological Studies. Both covariates should be  binary variables. The formula takes

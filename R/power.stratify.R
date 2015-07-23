@@ -90,7 +90,7 @@ power.stratify<-function(n, timeUnit, gVec,
   alpha=0.05, verbose=TRUE
   )
 {
-  res.optim<-optim(par=power.ini, fn=tt.power.stratify, 
+  res.optim<-stats::optim(par=power.ini, fn=tt.power.stratify, 
       n=n, timeUnit=timeUnit, gVec=gVec,
       PVec=PVec, HR=HR, lambda0Vec=lambda0Vec, alpha=alpha, 
       method = "L-BFGS-B",

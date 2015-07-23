@@ -2,7 +2,7 @@
 \alias{power.stratify}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Power calculation for survival analysis with binary predictor and exponential survival function
+Power Calculation for Survival Analysis with Binary Predictor and Exponential Survival Function
 }
 \description{
 Power calculation for survival analysis with binary predictor and exponential survival function.

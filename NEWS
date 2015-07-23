@@ -1,0 +1,19 @@
+# v0.0.9 July 23, 2015
+#   (1) explicitly import 'optim' function in 'NAMESPACE'
+#   
+# v0.0.8 July 22, 2015
+#  (1) rename 'log.txt' as 'NEWS'
+#  (2) fixed a warning: 
+#  The Title field should be in title case, current version then in title case:
+#  'Power and sample size calculation for survival analysis of epidemiological studies'
+#  'Power and Sample Size Calculation for Survival Analysis of Epidemiological Studies'
+#
+# v0.0.7 April 1, 2012
+#  (1) change 'GPL version 2 or newer' to 'GPL (>=2)
+#       in the file 'DESCRIPTION'
+#
+# v0.0.6 March 28, 2012
+#   (1) added functions 'power.stratify' and 'ssize.stratify'
+#       to calculate power/sample size for stratified survival analysis
+#
+ 

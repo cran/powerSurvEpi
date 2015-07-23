@@ -2,7 +2,7 @@
 \alias{numDEpi.default}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ 
-Calculate Number of Deaths Required for Cox Proportional Hazards Regression with Two Covariates for Epidemiological Studies (Covariate of interest should be binary)
+Calculate Number of Deaths Required for Cox Proportional Hazards Regression with Two Covariates for Epidemiological Studies
 }
 \description{
 Calculate number of deaths required for Cox proportional hazards regression with two covariates for epidemiological Studies. The covariate of interest should be a binary variable. The other covariate can be either binary or non-binary. The formula takes

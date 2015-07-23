@@ -27,16 +27,17 @@ export(
       ) 
 
 importFrom(stats,
-           qnorm,
-           pnorm,
-           rnorm,
            cor,
-           var,
-           lm
+           lm,
+           optim,
+           pnorm,
+           qnorm,
+           rnorm,
+           var
           )
 
 importFrom(survival,
-           survfit,
-           Surv
+           Surv,
+           survfit
           )
 

@@ -1,7 +1,7 @@
 \name{powerEpi.default}
 \alias{powerEpi.default}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Power Calculation for Cox Proportional Hazards Regression with Two Covariates for Epidemiological Studies (Covariate of interest should be binary) }
+\title{ Power Calculation for Cox Proportional Hazards Regression with Two Covariates for Epidemiological Studies}
 \description{
 Power calculation for Cox proportional hazards regression with two covariates for epidemiological Studies. The covariate of interest should be a binary variable. The other covariate can be either binary or non-binary. The formula takes
 into account competing risks and the correlation between the two covariates.

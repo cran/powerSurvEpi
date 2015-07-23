@@ -1,7 +1,7 @@
 \name{ssizeEpi.default}
 \alias{ssizeEpi.default}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{ Sample Size Calculation for Cox Proportional Hazards Regression with two covariates for Epidemiological Studies (Covariate of interest should be binary)}
+\title{ Sample Size Calculation for Cox Proportional Hazards Regression}
 \description{
 Sample size calculation for Cox proportional hazards regression with two covariates for Epidemiological Studies. The covariate of interest should be a binary variable. The other covariate can be either binary or non-binary. The formula takes
 into account competing risks and the correlation between the two covariates.

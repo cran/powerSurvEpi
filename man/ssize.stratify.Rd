@@ -1,7 +1,7 @@
 \name{ssize.stratify}
 \alias{ssize.stratify}
 \title{
-Sample size calculation for survival analysis with binary predictor and exponential survival function
+Sample size calculation for Survival Analysis with Binary Predictor and Exponential Survival Function
 }
 \description{
 Sample size calculation for survival analysis with binary predictor and exponential survival function.

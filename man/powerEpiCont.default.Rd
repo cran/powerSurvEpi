@@ -2,7 +2,7 @@
 \alias{powerEpiCont.default}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ 
-Power Calculation for Cox Proportional Hazards Regression with nonbinary covariates for Epidemiological Studies
+Power Calculation for Cox Proportional Hazards Regression with Nonbinary Covariates for Epidemiological Studies
 }
 \description{
 Power calculation for Cox proportional hazards regression with nonbinary covariates for Epidemiological Studies. 
