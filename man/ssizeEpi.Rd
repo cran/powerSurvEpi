@@ -82,9 +82,9 @@ sample size required for a randomized trial study by setting \code{rho2=0}.
 looks the same as that derived by Schoenfeld (1983). Latouche et al. (2004) pointed out that in this situation, the interpretations are different hence
 the two formulae are actually different. In Latouched et al. (2004), the
 hazard ratio \eqn{\exp(\beta_1)=\theta} measures the difference of effect of a covariate 
-at two different levels on  cause-specific hazard for a particular failure, 
+at two different levels on  the subdistribution hazard for a particular failure, 
 while in Schoenfeld (1983), the hazard ratio \eqn{\theta} measures 
-the difference of effect on subdistribution hazard.
+the difference of effect on the cause-specific hazard.
 }
 \seealso{ \code{\link{ssizeEpi.default}} }
 \examples{

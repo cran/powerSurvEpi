@@ -1,3 +1,8 @@
+# v0.1.0 Feb 7, 2018
+#  (1) Thank Aurélien Latouche <aurelien.latouche@lecnam.net> for pointing out a typo in the Notes of several Rd files. The correct one is:
+#      "In Latouche et al. (2004), the hazard ratio θ measures the difference of effect of a covariate  on  the subdistribution hazard ratio
+#       , while in Schoenfeld (1983),  on the cause specific hazard ratio."
+#
 # v0.0.9 July 23, 2015
 #   (1) explicitly import 'optim' function in 'NAMESPACE'
 #   
