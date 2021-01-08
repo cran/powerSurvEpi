@@ -7,16 +7,21 @@ Sample size calculation for Cox proportional hazards regression with two covaria
 into account competing risks and the correlation between the two covariates.
 }
 \usage{
-ssizeEpi.default(power, theta, p, psi, rho2, alpha = 0.05)
+ssizeEpi.default(power, 
+		 theta, 
+		 p, 
+		 psi, 
+		 rho2, 
+		 alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{power}{ postulated power. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{p}{ proportion of subjects taking value one for the covariate of interest. }
-  \item{psi}{ proportion of subjects died of the disease of interest. }
-  \item{rho2}{ square of the correlation between the covariate of interest and the other covariate. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. postulated power. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{p}{numeric. proportion of subjects taking value one for the covariate of interest. }
+  \item{psi}{numeric. proportion of subjects died of the disease of interest. }
+  \item{rho2}{numeric. square of the correlation between the covariate of interest and the other covariate. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size formula 
@@ -36,7 +41,7 @@ Given the type I error rate \eqn{\alpha} for a two-sided test, the total
 number of subjects required to achieve a power of \eqn{1-\beta} is
 \deqn{n=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 p (1-p) \psi (1-\rho^2)},}
-where \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and 
 \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times\sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and
@@ -74,8 +79,12 @@ the difference of effect on the cause-specific hazard.
 \examples{
   # Examples at the end of Section 5.2 of Latouche et al. (2004)
   # for a cohort study.
-  ssizeEpi.default(power = 0.80, theta = 2, p = 0.39 , psi = 0.505,
-    rho2 = 0.132^2, alpha = 0.05)
+  ssizeEpi.default(power = 0.80, 
+		   theta = 2, 
+		   p = 0.39, 
+		   psi = 0.505,
+                   rho2 = 0.132^2, 
+		   alpha = 0.05)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

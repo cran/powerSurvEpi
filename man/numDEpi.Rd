@@ -10,21 +10,25 @@ into account competing risks and the correlation between the two covariates.
 Some parameters will be estimated based on a pilot data set.
 }
 \usage{
-numDEpi(X1, X2, power, theta, alpha = 0.05)
+numDEpi(X1, 
+	X2, 
+	power, 
+	theta, 
+	alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X1}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
+  \item{X1}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
 in the pilot data set. This vector records the values of the covariate of 
 interest for the \code{nPilot} subjects in the pilot study. \code{X1} should 
 be binary and take only two possible values: zero and one.}
-  \item{X2}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
+  \item{X2}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
 in the pilot study. This vector records the values of the second covariate 
 for the \code{nPilot} subjects in the pilot study. \code{X2} can be binary or 
 non-binary.}
-  \item{power}{ the postulated power.}
-  \item{theta}{ postulated hazard ratio }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. the postulated power.}
+  \item{theta}{numeric. postulated hazard ratio }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the calculation of the number of required deaths 
@@ -45,7 +49,7 @@ number of deaths required to achieve a power of \eqn{1-\beta} is
 \deqn{D=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 p (1-p) (1-\rho^2),
 }}
-where \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times \sqrt{\frac{q(1-q)}{p(1-p)}},} 
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times \sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and
 \eqn{p=Pr(X_1=1)}, \eqn{q=Pr(X_2=1)}, \eqn{p_0=Pr(X_1=1|X_2=0)},
 and \eqn{p_1=Pr(X_1=1 | X_2=1)}.
@@ -85,7 +89,11 @@ the difference of effect on the cause-specific hazard.
   X1 <- c(rep(1, 39), rep(0, 61))
   set.seed(123456)
   X2 <- sample(c(0, 1), 100, replace = TRUE)
-  res <- numDEpi(X1, X2, power = 0.8, theta = 2, alpha = 0.05)
+  res <- numDEpi(X1 = X1, 
+		 X2 = X2, 
+		 power = 0.8, 
+		 theta = 2, 
+		 alpha = 0.05)
   print(res)
 
   # proportion of subjects died of the disease of interest.

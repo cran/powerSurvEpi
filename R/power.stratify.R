@@ -1,3 +1,6 @@
+# created on Dec. 17, 2020 by Weiliang Qiu
+#   (1) simplify R code
+#
 # v3 created on March 28, 2012
 #  (1) we have to assume constant hazard ratio to use Formula (4)
 #
@@ -51,7 +54,7 @@ ssize.stratify<-function(power, timeUnit, gVec,
   part2 <- (1-PVec)*part2 
   Vs <- part1 + part2
 
-  mu <- log(HR)*sqrt(sum(gVec*PVec*(1-PVec)*Vs))
+  mu <- log(HR)*sqrt(sum(gVec*PVec*(1-PVec)*Vs, na.rm=TRUE))
 
   za<-qnorm(1-alpha)
   zb<-qnorm(power)

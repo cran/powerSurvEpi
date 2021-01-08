@@ -7,7 +7,12 @@ Power calculation for the Comparison of Survival Curves Between Two Groups under
  the Cox Proportional-Hazards Model for clinical trials. Some parameters will be estimated based on a pilot data set.
 }
 \usage{
-powerCT(formula, dat, nE, nC, RR, alpha = 0.05)
+powerCT(formula, 
+	dat, 
+	nE, 
+	nC, 
+	RR, 
+	alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,10 +25,10 @@ powerCT(formula, dat, nE, nC, RR, alpha = 0.05)
   \item{dat}{ a data frame representing the pilot data set and containing at least 3 columns: (1) survival/censoring time; (2) censoring indicator;
     (3) group indicator which is a factor object in R and takes only two possible values (\code{C} for control group 
     and \code{E} for experimental group). }
-  \item{nE}{ number of participants in the experimental group. }
-  \item{nC}{ number of participants in the control group. }
-  \item{RR}{ postulated hazard ratio.}
-  \item{alpha}{ type I error rate. }
+  \item{nE}{integer. number of participants in the experimental group. }
+  \item{nC}{integer. number of participants in the control group. }
+  \item{RR}{numeric. postulated hazard ratio.}
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the power calculation method described in Section 14.12 (page 807)
@@ -51,7 +56,7 @@ E compared to group C \eqn{= n_E/n_C=k}, then the power of the test is
 \deqn{power=\Phi(\sqrt{k*m}*|RR-1|/(k*RR+1)-z_{1-\alpha/2}),} 
 where \deqn{m=n_E p_E+n_C p_C,} 
 and \eqn{z_{1-\alpha/2}} 
-is the \eqn{100 (1-\alpha/2)} percentile of
+is the \eqn{100 (1-\alpha/2)}-th percentile of
 the standard normal distribution \eqn{N(0, 1)}, \eqn{\Phi} is the cumulative distribution function (CDF) 
 of \eqn{N(0, 1)}.
 
@@ -119,8 +124,12 @@ from the experimental group;
   library(survival)
 
   data(Oph)
-  res <- powerCT(formula = Surv(times, status) ~ group, dat = Oph, 
-    nE = 200, nC = 200, RR = 0.7, alpha = 0.05)
+  res <- powerCT(formula = Surv(times, status) ~ group, 
+		 dat = Oph, 
+                 nE = 200, 
+		 nC = 200, 
+		 RR = 0.7, 
+		 alpha = 0.05)
 
   # Table 14.24 on page 809 of Rosner (2006)
   print(round(res$mat.lambda, 4))

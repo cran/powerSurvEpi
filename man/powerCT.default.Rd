@@ -7,16 +7,21 @@ Power calculation for the Comparison of Survival Curves Between Two Groups under
  the Cox Proportional-Hazards Model for clinical trials.
 }
 \usage{
-powerCT.default(nE, nC, pE, pC, RR, alpha = 0.05)
+powerCT.default(nE, 
+		nC, 
+		pE, 
+		pC, 
+		RR, 
+		alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{nE}{ number of participants in the experimental group. }
-  \item{nC}{ number of participants in the control group. }
-  \item{pE}{ probability of failure in group E (experimental group) over the maximum time period of the study (t years). }
-  \item{pC}{ probability of failure in group C (control group) over the maximum time period of the study (t years). }
-  \item{RR}{ postulated hazard ratio.}
-  \item{alpha}{ type I error rate. }
+  \item{nE}{integer. number of participants in the experimental group. }
+  \item{nC}{integer. number of participants in the control group. }
+  \item{pE}{numeric. probability of failure in group E (experimental group) over the maximum time period of the study (t years). }
+  \item{pC}{numeric. probability of failure in group C (control group) over the maximum time period of the study (t years). }
+  \item{RR}{numeric. postulated hazard ratio.}
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the power calculation method described in Section 14.12 (page 807)
@@ -37,7 +42,7 @@ E compared to group C \eqn{= n_E/n_C=k}, then the power of the test is
 \deqn{power=\Phi(\sqrt{k*m}*|RR-1|/(k*RR+1)-z_{1-\alpha/2}),} 
 where \deqn{m=n_E p_E+n_C p_C,} 
 and \eqn{z_{1-\alpha/2}} 
-is the \eqn{100 (1-\alpha/2)} percentile of
+is the \eqn{100 (1-\alpha/2)}-th percentile of
 the standard normal distribution \eqn{N(0, 1)}, \eqn{\Phi} is the cumulative distribution function (CDF) 
 of \eqn{N(0, 1)}.
 }
@@ -60,8 +65,12 @@ The power formula assumes that the central-limit theorem is valid and hence is a
 \examples{
   # Example 14.42 in Rosner B. Fundamentals of Biostatistics. 
   # (6-th edition). (2006) page 809
-  powerCT.default(nE = 200, nC = 200, pE = 0.3707, pC = 0.4890, 
-    RR = 0.7, alpha = 0.05)
+  powerCT.default(nE = 200, 
+		  nC = 200, 
+		  pE = 0.3707, 
+		  pC = 0.4890, 
+                  RR = 0.7, 
+		  alpha = 0.05)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

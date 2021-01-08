@@ -9,20 +9,26 @@ Sample size calculation testing interaction effect for Cox proportional hazards 
 into account the correlation between the two covariates.
 }
 \usage{
-ssizeEpiInt.default0(power, theta, p, psi, G, rho2, alpha = 0.05)
+ssizeEpiInt.default0(power, 
+		     theta, 
+		     p, 
+		     psi, 
+		     G, 
+		     rho2, 
+		     alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{power}{ postulated power. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{p}{ proportion of subjects taking value one for the covariate of interest. }
-  \item{psi}{ proportion of subjects died of the disease of interest. }
-  \item{G}{ a factor adjusting the sample size. The sample size needed to
+  \item{power}{numeric. postulated power. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{p}{numeric. proportion of subjects taking value one for the covariate of interest. }
+  \item{psi}{numeric. proportion of subjects died of the disease of interest. }
+  \item{G}{numeric. a factor adjusting the sample size. The sample size needed to
 detect an effect of a prognostic factor with given error probabilities has
 to be multiplied by the factor \code{G} when an interaction of the
 same magnitude is to be detected.}
-  \item{rho2}{ square of the correlation between the covariate of interest and the other covariate. }
-  \item{alpha}{ type I error rate. }
+  \item{rho2}{numeric. square of the correlation between the covariate of interest and the other covariate. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size calculation formula 
@@ -40,7 +46,7 @@ number of subjects required to achieve a power of \eqn{1-\beta} is
 \deqn{n=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2 G}{
 [\log(\theta)]^2 \psi (1-p) p (1-\rho^2)
 },}
-where \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and 
 \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times\sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and
@@ -63,8 +69,13 @@ Sample size considerations for the evaluation of prognostic factors in survival 
 \seealso{ \code{\link{ssizeEpiInt.default1}}, \code{\link{ssizeEpiInt2}} }
 \examples{
   # Example at the end of Section 4 of Schmoor et al. (2000).
-  ssizeEpiInt.default0(power = 0.8227, theta = 3, p = 0.61, psi = 139 / 184, 
-    G = 4.79177, rho2 = 0.015^2, alpha = 0.05)
+  ssizeEpiInt.default0(power = 0.8227, 
+		       theta = 3, 
+		       p = 0.61, 
+		       psi = 139 / 184, 
+                       G = 4.79177, 
+		       rho2 = 0.015^2, 
+		       alpha = 0.05)
   
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

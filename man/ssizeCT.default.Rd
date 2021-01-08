@@ -7,16 +7,21 @@ Sample size calculation for the Comparison of Survival Curves Between Two Groups
  the Cox Proportional-Hazards Model for clinical trials. 
 }
 \usage{
-ssizeCT.default(power, k, pE, pC, RR, alpha = 0.05)
+ssizeCT.default(power, 
+		k, 
+		pE, 
+		pC, 
+		RR, 
+		alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{power}{ power to detect the magnitude of the hazard ratio as small as that specified by \code{RR}.}
-  \item{k}{ ratio of participants in group E (experimental group) compared to group C (control group).}
-  \item{pE}{ probability of failure in group E (experimental group) over the maximum time period of the study (t years). }
-  \item{pC}{ probability of failure in group C (control group) over the maximum time period of the study (t years). }
-  \item{RR}{ postulated hazard ratio. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. power to detect the magnitude of the hazard ratio as small as that specified by \code{RR}.}
+  \item{k}{numeric. ratio of participants in group E (experimental group) compared to group C (control group).}
+  \item{pE}{numeric. probability of failure in group E (experimental group) over the maximum time period of the study (t years). }
+  \item{pC}{numeric. probability of failure in group C (control group) over the maximum time period of the study (t years). }
+  \item{RR}{numeric. postulated hazard ratio. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size calculation method described in Section 14.12 (page 807)
@@ -40,7 +45,7 @@ where \deqn{m=\frac{1}{k}\left(\frac{k RR + 1}{RR - 1}\right)^2\left(
 z_{1-\alpha/2}+z_{1-\beta}
 \right)^2,} 
 and \eqn{z_{1-\alpha/2}} 
-is the \eqn{100 (1-\alpha/2)} percentile of
+is the \eqn{100 (1-\alpha/2)}-th percentile of
 the standard normal distribution \eqn{N(0, 1)}.
 
 }
@@ -64,8 +69,12 @@ the standard normal distribution \eqn{N(0, 1)}.
 \examples{
   # Example 14.42 in Rosner B. Fundamentals of Biostatistics. 
   # (6-th edition). (2006) page 809
-  ssizeCT.default(power = 0.8, k = 1, pE = 0.3707, pC = 0.4890, 
-    RR = 0.7, alpha = 0.05)
+  ssizeCT.default(power = 0.8, 
+		  k = 1, 
+		  pE = 0.3707, 
+		  pC = 0.4890, 
+                  RR = 0.7, 
+		  alpha = 0.05)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

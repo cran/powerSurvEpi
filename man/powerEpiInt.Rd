@@ -10,26 +10,31 @@ into account the correlation between the two covariates.
 Some parameters will be estimated based on a pilot study.
 }
 \usage{
-powerEpiInt(X1, X2, failureFlag, n, theta, alpha = 0.05)
+powerEpiInt(X1, 
+	    X2, 
+	    failureFlag, 
+	    n, 
+	    theta, 
+	    alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X1}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
+  \item{X1}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
     in the pilot data set. This vector records the values of the covariate of 
     interest for the \code{nPilot} subjects in the pilot study. \code{X1} should 
     be binary and take only two possible values: zero and one.
   }
-  \item{X2}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
+  \item{X2}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
     in the pilot study. This vector records the values of the second covariate 
     for the \code{nPilot} subjects in the pilot study. 
     \code{X2} should be binary and take only two possible values: zero and one.
   }
-  \item{failureFlag}{a \code{nPilot} by 1 vector of indicators indicating if a subject is 
+  \item{failureFlag}{numeric.a \code{nPilot} by 1 vector of indicators indicating if a subject is 
     failure (\code{failureFlag=1}) or alive (\code{failureFlag=0}). 
   }
-  \item{n}{ total number of subjects. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{alpha}{ type I error rate. }
+  \item{n}{integer. total number of subjects. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the power calculation formula 
@@ -45,7 +50,7 @@ or is equal to \eqn{\exp(\gamma)=\theta}.
 Given the type I error rate \eqn{\alpha} for a two-sided test, the power
 required to detect a hazard ratio as small as \eqn{\exp(\gamma)=\theta} is:
 \deqn{power=\Phi\left(-z_{1-\alpha/2}+\sqrt{\frac{n}{\delta}[\log(\theta)]^2 \psi}\right),}
-where
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, 
 \deqn{\delta=\frac{1}{p_{00}}+\frac{1}{p_{01}}+\frac{1}{p_{10}}
 +\frac{1}{p_{11}},}
 \eqn{\psi} is the proportion of subjects died of
@@ -93,7 +98,12 @@ Sample size considerations for the evaluation of prognostic factors in survival 
   X2 <- sample(c(0, 1), 100, replace = TRUE)
   failureFlag <- sample(c(0, 1), 100, prob = c(0.25, 0.75), replace = TRUE)
 
-  powerEpiInt(X1, X2, failureFlag, n = 184, theta = 3, alpha = 0.05)
+  powerEpiInt(X1 = X1, 
+	      X2 = X2, 
+	      failureFlag = failureFlag, 
+	      n = 184, 
+	      theta = 3, 
+	      alpha = 0.05)
   
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

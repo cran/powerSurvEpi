@@ -8,7 +8,13 @@ Sample Size Calculation for Cox Proportional Hazards Regression with Nonbinary C
 Sample size calculation for Cox proportional hazards regression with nonbinary covariates for Epidemiological Studies. 
 }
 \usage{
-ssizeEpiCont(formula, dat, X1, failureFlag, power, theta, alpha = 0.05)
+ssizeEpiCont(formula, 
+	     dat, 
+	     var.X1, 
+	     var.failureFlag, 
+	     power, 
+	     theta, 
+	     alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,13 +27,12 @@ ssizeEpiCont(formula, dat, X1, failureFlag, power, theta, alpha = 0.05)
     the \code{p} (\eqn{>1}) columns contains the covariate of interest and other
     covariates.
   }
-  \item{X1}{the covariate of interest.}
-  \item{failureFlag}{a \code{nPilot} by 1 vector of indicators indicating if a subject is 
-    failure (\code{failureFlag=1}) or alive (\code{failureFlag=0}). 
+  \item{var.X1}{character. name of the column in the data frame \code{dat}, indicating the covariate of interest.}
+  \item{var.failureFlag}{character. name of the column in the data frame \code{dat}, indicating if a subject is failure (taking value 1) or alive (taking value 0). 
   }
-  \item{power}{ postulated power. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. postulated power. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size calculation formula 
@@ -47,7 +52,7 @@ number of subjects required to achieve a sample size of \eqn{1-\beta} is
 \deqn{n=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 \sigma^2 \psi (1-\rho^2)
 },}
-where \eqn{\sigma^2=Var(X_1)}, \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\sigma^2=Var(X_1)}, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and \eqn{\rho} is the multiple correlation coefficient
 of the following linear regression:
 \deqn{x_1=b_0+\boldsymbol{b}^T\boldsymbol{x}_2.} 
@@ -85,8 +90,13 @@ ssize for a randomized trial study by setting \code{rho2=0}.
   failureFlag <- sample(c(0, 1), 100, prob = c(0.25, 0.75), replace = TRUE)
   dat <- data.frame(X1 = X1, X2 = X2, failureFlag = failureFlag)
 
-  ssizeEpiCont(formula = X1 ~ X2, dat = dat, X1 = X1, failureFlag = failureFlag, 
-    power = 0.806, theta = exp(1), alpha = 0.05)
+  ssizeEpiCont(formula = X1 ~ X2, 
+	       dat = dat, 
+	       var.X1 = "X1", 
+	       var.failureFlag = "failureFlag", 
+               power = 0.806, 
+	       theta = exp(1), 
+	       alpha = 0.05)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

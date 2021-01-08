@@ -12,22 +12,22 @@ powerEpi(X1, X2, failureFlag, n, theta, alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X1}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
+  \item{X1}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
     in the pilot data set. This vector records the values of the covariate of 
     interest for the \code{nPilot} subjects in the pilot study. \code{X1} should 
     be binary and take only two possible values: zero and one.
   }
-  \item{X2}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
+  \item{X2}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
     in the pilot study. This vector records the values of the second covariate 
     for the \code{nPilot} subjects in the pilot study. \code{X2} can be binary or 
     non-binary.
   }
-  \item{failureFlag}{a \code{nPilot} by 1 vector of indicators indicating if a subject is 
+  \item{failureFlag}{numeric. a \code{nPilot} by 1 vector of indicators indicating if a subject is 
     failure (\code{failureFlag=1}) or alive (\code{failureFlag=0}). 
   }
-  \item{n}{ total number of subjects }
-  \item{theta}{ postulated hazard ratio }
-  \item{alpha}{ type I error rate. }
+  \item{n}{integer. total number of subjects }
+  \item{theta}{numeric. postulated hazard ratio }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the power calculation formula 
@@ -47,7 +47,7 @@ Given the type I error rate \eqn{\alpha} for a two-sided test, the power
 required to detect a hazard ratio as small as \eqn{\exp(\beta_1)=\theta} is
 \deqn{power=\Phi\left(-z_{1-\alpha/2}+\sqrt{n[\log(\theta)]^2
 p (1-p) \psi (1-\rho^2)}\right),}
-where \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and 
 \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times \sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and

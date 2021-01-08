@@ -7,7 +7,12 @@ Sample size calculation for the Comparison of Survival Curves Between Two Groups
  the Cox Proportional-Hazards Model for clinical trials. Some parameters will be estimated based on a pilot data set.
 }
 \usage{
-ssizeCT(formula, dat, power, k, RR, alpha = 0.05)
+ssizeCT(formula, 
+	dat, 
+	power, 
+	k, 
+	RR, 
+	alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,10 +25,10 @@ ssizeCT(formula, dat, power, k, RR, alpha = 0.05)
   \item{dat}{ a data frame representing the pilot data set and containing at least 3 columns: (1) survival/censoring time; (2) censoring indicator;
     (3) group indicator which is a factor object in R and takes only two possible values (\code{C} for control group 
     and \code{E} for experimental group). }
-  \item{power}{ power to detect the magnitude of the hazard ratio as small as that specified by \code{RR}.}
-  \item{k}{ ratio of participants in group E (experimental group) compared to group C (control group).}
-  \item{RR}{ postulated hazard ratio. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. power to detect the magnitude of the hazard ratio as small as that specified by \code{RR}.}
+  \item{k}{numeric. ratio of participants in group E (experimental group) compared to group C (control group).}
+  \item{RR}{numeric. postulated hazard ratio. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size calculation method described in Section 14.12 (page 807)
@@ -54,7 +59,7 @@ where \deqn{m=\frac{1}{k}\left(\frac{k RR + 1}{RR - 1}\right)^2\left(
 z_{1-\alpha/2}+z_{1-\beta}
 \right)^2,} 
 and \eqn{z_{1-\alpha/2}} 
-is the \eqn{100 (1-\alpha/2)} percentile of
+is the \eqn{100 (1-\alpha/2)}-th percentile of
 the standard normal distribution \eqn{N(0, 1)}.
 
 \eqn{p_C} and \eqn{p_E} can be calculated from the following formulaes:
@@ -123,8 +128,12 @@ from the experimental group;
   library(survival)
 
   data(Oph)
-  res <- ssizeCT(formula = Surv(times, status) ~ group, dat = Oph, 
-    power = 0.8, k = 1, RR = 0.7, alpha = 0.05)
+  res <- ssizeCT(formula = Surv(times, status) ~ group, 
+		 dat = Oph, 
+                 power = 0.8, 
+		 k = 1, 
+		 RR = 0.7, 
+		 alpha = 0.05)
 
   # Table 14.24 on page 809 of Rosner (2006)
   print(round(res$mat.lambda, 4))

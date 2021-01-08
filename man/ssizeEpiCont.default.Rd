@@ -8,16 +8,21 @@ Sample Size Calculation for Cox Proportional Hazards Regression with Nonbinary C
 Sample size calculation for Cox proportional hazards regression with nonbinary covariates for Epidemiological Studies. 
 }
 \usage{
-ssizeEpiCont.default(power, theta, sigma2, psi, rho2, alpha = 0.05)
+ssizeEpiCont.default(power, 
+		     theta, 
+		     sigma2, 
+		     psi, 
+		     rho2, 
+		     alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{power}{ postulated power. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{sigma2}{ variance of the covariate of interest. }
-  \item{psi}{ proportion of subjects died of the disease of interest. }
-  \item{rho2}{ square of the multiple correlation coefficient between the covariate of interest and other covariates. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. postulated power. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{sigma2}{numeric. variance of the covariate of interest. }
+  \item{psi}{numeric. proportion of subjects died of the disease of interest. }
+  \item{rho2}{numeric. square of the multiple correlation coefficient between the covariate of interest and other covariates. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size calculation formula 
@@ -37,7 +42,7 @@ number of subjects required to achieve a sample size of \eqn{1-\beta} is
 \deqn{n=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 \sigma^2 \psi (1-\rho^2)
 },}
-where \eqn{\sigma^2=Var(X_1)}, \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\sigma^2=Var(X_1)}, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and \eqn{\rho} is the multiple correlation coefficient
 of the following linear regression:
 \deqn{x_1=b_0+\boldsymbol{b}^T\boldsymbol{x}_2.} 
@@ -66,8 +71,12 @@ ssize for a randomized trial study by setting \code{rho2=0}.
   # while this implementation assumed two-sided test. 
   # Hence alpha=0.1 here (two-sided test) will correspond
   # to alpha=0.05 of one-sided test in Hsieh and Lavori's (2000) example.
-  ssizeEpiCont.default(power = 0.806, theta = exp(1), sigma2 = 0.3126^2, 
-    psi = 0.738, rho2 = 0.1837, alpha = 0.1)
+  ssizeEpiCont.default(power = 0.806, 
+		       theta = exp(1), 
+		       sigma2 = 0.3126^2, 
+                       psi = 0.738, 
+		       rho2 = 0.1837, 
+		       alpha = 0.1)
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

@@ -7,26 +7,31 @@ Sample size calculation for Cox proportional hazards regression with two covaria
 into account competing risks and the correlation between the two covariates.
 }
 \usage{
-ssizeEpi(X1, X2, failureFlag, power, theta, alpha = 0.05)
+ssizeEpi(X1, 
+	 X2, 
+	 failureFlag, 
+	 power, 
+	 theta, 
+	 alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{X1}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
+  \item{X1}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects 
     in the pilot data set. This vector records the values of the covariate of 
     interest for the \code{nPilot} subjects in the pilot study. \code{X1} should 
     be binary and take only two possible values: zero and one.
   }
-  \item{X2}{ a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
+  \item{X2}{numeric. a \code{nPilot} by 1 vector, where \code{nPilot} is the number of subjects
     in the pilot study. This vector records the values of the second covariate 
     for the \code{nPilot} subjects in the pilot study. \code{X2} can be binary or 
     non-binary.
   }
-  \item{failureFlag}{a \code{nPilot} by 1 vector of indicators indicating if a subject is 
+  \item{failureFlag}{numeric. a \code{nPilot} by 1 vector of indicators indicating if a subject is 
     failure (\code{failureFlag=1}) or alive (\code{failureFlag=0}). 
   }
-  \item{power}{ postulated power. }
-  \item{theta}{ postulated hazard ratio. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. postulated power. }
+  \item{theta}{numeric. postulated hazard ratio. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the sample size formula 
@@ -46,7 +51,7 @@ Given the type I error rate \eqn{\alpha} for a two-sided test, the total
 number of subjects required to achieve a power of \eqn{1-\beta} is
 \deqn{n=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 p (1-p) \psi (1-\rho^2)},}
-where \eqn{\psi} is the proportion of subjects died of
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \eqn{\psi} is the proportion of subjects died of
 the disease of interest, and 
 \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times\sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and
@@ -94,8 +99,12 @@ the difference of effect on the cause-specific hazard.
   X2 <- sample(c(0, 1), 100, replace = TRUE)
   failureFlag <- sample(c(0, 1), 100, prob = c(0.5, 0.5), replace = TRUE)
 
-  ssizeEpi(X1 = X1, X2 = X2, failureFlag = failureFlag, 
-    power = 0.80, theta = 2, alpha = 0.05)
+  ssizeEpi(X1 = X1, 
+	   X2 = X2, 
+	   failureFlag = failureFlag, 
+           power = 0.80, 
+	   theta = 2, 
+	   alpha = 0.05)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

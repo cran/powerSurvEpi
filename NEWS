@@ -1,3 +1,9 @@
+# v0.1.1 Dec 17, 2020
+#  (1) fixed a bug in function 'ssizeEpiCont': sigma2 <- var(X1) should be sigma2 <- var(X1, na.rm=TRUE)
+#      Thank Prof. Annabelle Rodriguez-Oquendo <rodriguezoquendo@uchc.edu> for reporting this bug
+#  (2) simplify R code
+#  (3) change maintainer's email to weiliang.qiu@gmail.com
+#
 # v0.1.0 Feb 7, 2018
 #  (1) Thank Aurélien Latouche <aurelien.latouche@lecnam.net> for pointing out a typo in the Notes of several Rd files. The correct one is:
 #      "In Latouche et al. (2004), the hazard ratio θ measures the difference of effect of a covariate  on  the subdistribution hazard ratio

@@ -9,15 +9,19 @@ Calculate number of deaths required for Cox proportional hazards regression with
 into account competing risks and the correlation between the two covariates.
 }
 \usage{
-numDEpi.default(power, theta, p, rho2, alpha = 0.05)
+numDEpi.default(power, 
+		theta, 
+		p, 
+		rho2, 
+		alpha = 0.05)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{power}{ the postulated power.}
-  \item{theta}{ postulated hazard ratio }
-  \item{p}{ proportion of subjects taking the value one for the covariate of interest. }
-  \item{rho2}{ square of the correlation between the covariate of interest and the other covariate. }
-  \item{alpha}{ type I error rate. }
+  \item{power}{numeric. the postulated power.}
+  \item{theta}{numeric. postulated hazard ratio }
+  \item{p}{numeric. proportion of subjects taking the value one for the covariate of interest. }
+  \item{rho2}{numeric. square of the correlation between the covariate of interest and the other covariate. }
+  \item{alpha}{numeric. type I error rate. }
 }
 \details{
 This is an implementation of the calculation of the number of required deaths 
@@ -38,7 +42,7 @@ number of deaths required to achieve a power of \eqn{1-\beta} is
 \deqn{D=\frac{\left(z_{1-\alpha/2}+z_{1-\beta}\right)^2}{
 [\log(\theta)]^2 p (1-p) (1-\rho^2),
 }}
-where \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times \sqrt{\frac{q(1-q)}{p(1-p)}},} 
+where \eqn{z_{a}} is the \eqn{100 a}-th percentile of the standard normal distribution, \deqn{\rho=corr(X_1, X_2)=(p_1-p_0)\times \sqrt{\frac{q(1-q)}{p(1-p)}},} 
 and
 \eqn{p=Pr(X_1=1)}, \eqn{q=Pr(X_2=1)}, \eqn{p_0=Pr(X_1=1|X_2=0)},
 and \eqn{p_1=Pr(X_1=1 | X_2=1)}.
@@ -72,8 +76,11 @@ the difference of effect on the cause-specific hazard.
 \examples{
   # Example at the end of Section 5.2 of Latouche et al. (2004)
   # for a cohort study.
-  D <- numDEpi.default(power = 0.8, theta = 2, p = 0.39, 
-    rho2 = 0.132^2, alpha = 0.05)
+  D <- numDEpi.default(power = 0.8, 
+		       theta = 2, 
+		       p = 0.39, 
+                       rho2 = 0.132^2, 
+		       alpha = 0.05)
 
   # proportion of subjects died of the disease of interest.
   psi <- 0.505

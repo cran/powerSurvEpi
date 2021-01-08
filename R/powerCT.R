@@ -1,3 +1,6 @@
+# created on Dec. 17, 2020 by Weiliang Qiu
+#   (1) simplify R code
+#
 # created on Feb. 25, 2009 by Weiliang Qiu
 #
 # Rosner B. (2006). Fundamentals of Biostatistics (6th edition). Thomson Brooks/Cole.
@@ -172,16 +175,16 @@ getLambdaDetla<-function(formula, dat, RR=1.5)
   for(i in 2:nTimes) 
   {
     i1<-i-1 
-    A[i]<-prod(1-lambda.C[1:i1])
-    B[i]<-prod(1-RRlambda.C[1:i1])
-    C[i]<-prod(1-delta.C[1:i1])
+    A[i]<-prod(1-lambda.C[1:i1], na.rm=TRUE)
+    B[i]<-prod(1-RRlambda.C[1:i1], na.rm=TRUE)
+    C[i]<-prod(1-delta.C[1:i1], na.rm=TRUE)
   }
 
   D<-lambda.C*A*C
   E<-RRlambda.C*B*C
 
-  pC<-sum(D)
-  pE<-sum(E)
+  pC<-sum(D, na.rm=TRUE)
+  pE<-sum(E, na.rm=TRUE)
   
 
   mat<-cbind(times, lambda.C, RRlambda.C, delta.C, A, B, C, D, E)

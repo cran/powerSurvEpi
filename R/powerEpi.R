@@ -1,3 +1,6 @@
+# v0.1.1 created on Dec. 17, 2020
+#   (1) simplify R code
+#
 # v0.0.1 created on Feb. 10, 2009
 #  (1) HR values changed to 1.5, 1.8, 2.0, 2.5 
 #  (2) rho2 values changed to 0.0, 0.1, 0.3, 0.5
@@ -11,6 +14,8 @@
 #      projected PCa deaths+mets is 310 for all 2412 subjects with genotype info
 # 
 #
+
+
 # power for a given sample size
 powerEpi.default<-function(n, theta, p, psi, rho2, alpha=0.05)
 {
@@ -23,11 +28,13 @@ powerEpi.default<-function(n, theta, p, psi, rho2, alpha=0.05)
 }
 
 # estimate p and rho2 from a pilot data
+# X1 - binary variable
+# failureFlag - binary variable
 powerEpi<-function(X1, X2, failureFlag, n, theta, alpha=0.05)
 {
-  psi<-sum(failureFlag==1)/length(failureFlag)
-  p<-sum(X1==1)/length(X1)
-  rho<-cor(X1, X2)
+  psi<-mean(failureFlag, na.rm=TRUE)
+  p<-mean(X1, na.rm=TRUE)
+  rho<-cor(X1, X2, use="na.or.complete")
   rho2<-rho^2
   
   ua2<-qnorm(1-alpha/2)
@@ -57,9 +64,9 @@ ssizeEpi.default<-function(power, theta, p, psi, rho2, alpha=0.05)
 # estimate p and rho2 from a pilot data
 ssizeEpi<-function(X1, X2, failureFlag, power, theta, alpha=0.05)
 {
-  psi<-sum(failureFlag==1)/length(failureFlag)
-  p<-sum(X1==1)/length(X1)
-  rho<-cor(X1, X2)
+  psi<-mean(failureFlag, na.rm=TRUE)
+  p<-mean(X1, na.rm=TRUE)
+  rho<-cor(X1, X2, use="na.or.complete")
   rho2<-rho^2
 
   ua2<-qnorm(1-alpha/2)
@@ -95,8 +102,8 @@ numDEpi.default<-function(power, theta, p, rho2, alpha=0.05)
 numDEpi<-function(X1, X2, power, theta, alpha=0.05)
 {
 
-  p<-sum(X1==1)/length(X1)
-  rho<-cor(X1, X2)
+  p<-mean(X1, na.rm=TRUE)
+  rho<-cor(X1, X2, use="na.or.complete")
 
   ua2<-qnorm(1-alpha/2)
   beta<-1-power
@@ -139,10 +146,14 @@ ssizeEpiCont.default<-function(power, theta, sigma2, psi, rho2, alpha=0.05)
 
 
 # estimate rho2 based on a pilot data
-powerEpiCont<-function(formula, dat, X1, failureFlag, n, theta, alpha=0.05)
+powerEpiCont<-function(formula, dat, var.X1, var.failureFlag, 
+		       n, theta, alpha=0.05)
 {
-  sigma2<-var(X1)
-  psi<-sum(failureFlag==1)/length(failureFlag)
+  X1 = dat[, c(var.X1)]
+  failureFlag = dat[, c(var.failureFlag)]
+
+  sigma2<-var(X1, na.rm=TRUE)
+  psi<-mean(failureFlag, na.rm=TRUE)
 
   res.lm<-lm(formula=formula, data=dat)
   tt<-summary(res.lm)
@@ -158,16 +169,18 @@ powerEpiCont<-function(formula, dat, X1, failureFlag, n, theta, alpha=0.05)
 }
 
 # estimate rho2 based on a pilot data
-ssizeEpiCont<-function(formula, dat, X1, failureFlag, power, theta, alpha=0.05)
+ssizeEpiCont<-function(formula, dat, var.X1, var.failureFlag, 
+		       power, theta, alpha=0.05)
 {
+  X1 = dat[, c(var.X1)]
+  failureFlag = dat[, c(var.failureFlag)]
 
-  sigma2<-var(X1)
-  psi<-sum(failureFlag==1)/length(failureFlag)
+  sigma2<-var(X1, na.rm=TRUE)
+  psi<-mean(failureFlag, na.rm=TRUE)
 
   res.lm<-lm(formula=formula, data=dat)
   tt<-summary(res.lm)
   rho2<-tt$r.squared
-
 
   ua<-qnorm(1-alpha/2)
   ub<-qnorm(power)
@@ -180,8 +193,6 @@ ssizeEpiCont<-function(formula, dat, X1, failureFlag, power, theta, alpha=0.05)
   res<-list(n=n, rho2=rho2, sigma2=sigma2, psi=psi)
   return(res)
 }
-
-
 
 
 # p00=Pr(Z1=0, Z2=0)
@@ -224,11 +235,11 @@ ssizeEpiInt.default1<-function(power, theta, psi, p00, p01, p10, p11, alpha=0.05
 powerEpiInt<-function(X1, X2, failureFlag, n, theta, alpha=0.05)
 {
 
-  psi<-sum(failureFlag==1)/length(failureFlag)
-  mya<-sum(X1==0 & X2==0)
-  myb<-sum(X1==0 & X2==1)
-  myc<-sum(X1==1 & X2==0)
-  myd<-sum(X1==1 & X2==1)
+  psi<-mean(failureFlag, na.rm=TRUE)
+  mya<-sum(X1==0 & X2==0, na.rm=TRUE)
+  myb<-sum(X1==0 & X2==1, na.rm=TRUE)
+  myc<-sum(X1==1 & X2==0, na.rm=TRUE)
+  myd<-sum(X1==1 & X2==1, na.rm=TRUE)
 
   res<-powerEpiInt2(n, theta, psi, 
     mya, myb, myc, myd, alpha)
@@ -334,11 +345,11 @@ ssizeEpiInt2<-function(power, theta, psi,
 ssizeEpiInt<-function(X1, X2, failureFlag, power, theta, alpha=0.05)
 {
 
-  psi<-sum(failureFlag==1)/length(failureFlag)
-  mya<-sum(X1==0 & X2==0)
-  myb<-sum(X1==0 & X2==1)
-  myc<-sum(X1==1 & X2==0)
-  myd<-sum(X1==1 & X2==1)
+  psi<-mean(failureFlag, na.rm=TRUE)
+  mya<-sum(X1==0 & X2==0, na.rm=TRUE)
+  myb<-sum(X1==0 & X2==1, na.rm=TRUE)
+  myc<-sum(X1==1 & X2==0, na.rm=TRUE)
+  myd<-sum(X1==1 & X2==1, na.rm=TRUE)
 
   res<-ssizeEpiInt2(power, theta, psi, 
   mya, myb, myc, myd, alpha)
