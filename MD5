@@ -1,8 +1,9 @@
-082de188fcca4b30aaad04ff66fc5e48 *DESCRIPTION
-0fd33a5d18cee5828df15cf5d5eba2a9 *NAMESPACE
-9a9293d3ca102b0c043d46e71512596b *NEWS
+1ac3e9e44ed9333e7017685829d3364b *DESCRIPTION
+4f255a1568d69f085b3de63c501a2ecb *NAMESPACE
+5cf1df291ee5c18f9c9078732d92b7d0 *NEWS
 0a4575c21621d59e06ef6b291ed1ccd2 *R/power.stratify.R
 b7b7c2d9a3342da420d2d144206a7479 *R/powerCT.R
+083831313949cd2876ade7617b4de9e9 *R/powerConLogistic.R
 50c2266266745200e936aff9548b8e3f *R/powerEpi.R
 02bb58f7e52d78080e48840ac732dca6 *data/Oph.csv.gz
 800f0b83a1a6cfaaf3fb9fd06af875e0 *data/Oph.rda
@@ -13,6 +14,8 @@ e15d7f2a35d5f735497f5facd1aa020c *man/power.stratify.Rd
 ab44626ff24f91a89353048509876403 *man/powerCT.Rd
 cd2c8ba42cff985ea239114b80fe9db3 *man/powerCT.default.Rd
 4ef9745f956f33f940bfb5b28bcf8c90 *man/powerCT.default0.Rd
+562e82ef6874e0769ba344c497cf72cf *man/powerConLogistic.bin.Rd
+41b033d15dccb55d3de897147b5b5616 *man/powerConLogistic.con.Rd
 4ae10421a09cb45a2cdebc067ca8c6e2 *man/powerEpi.Rd
 0d492c5cc414c0ebdc7e5825c33f8640 *man/powerEpi.default.Rd
 3e74d7f397d55f28c579ac2d67dc0801 *man/powerEpiCont.Rd

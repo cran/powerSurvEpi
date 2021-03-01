@@ -1,4 +1,6 @@
 export(
+       powerConLogistic.bin,
+       powerConLogistic.con,
        powerEpi.default,
        powerEpi,
        ssizeEpi.default,
@@ -36,8 +38,12 @@ importFrom(stats,
            var
           )
 
+importFrom("stats", "uniroot")
+
 importFrom(survival,
            Surv,
            survfit
           )
 
+importFrom(pracma,
+           nchoosek)

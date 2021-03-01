@@ -1,3 +1,9 @@
+# v0.1.3 Feb 28, 2021
+#  (1) updated DESCRIPTION
+#
+# v0.1.2 Feb 21, 2021
+#  (1) added functions 'powerConLogistic.bin' and 'powerConLogistic.con'
+#
 # v0.1.1 Dec 17, 2020
 #  (1) fixed a bug in function 'ssizeEpiCont': sigma2 <- var(X1) should be sigma2 <- var(X1, na.rm=TRUE)
 #      Thank Prof. Annabelle Rodriguez-Oquendo <rodriguezoquendo@uchc.edu> for reporting this bug
