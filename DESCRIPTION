@@ -4,6 +4,7 @@ Date: 2021-02-28
 Title: Power and Sample Size Calculation for Survival Analysis of
         Epidemiological Studies
 Author: Weiliang Qiu, Jorge Chavarro, Ross Lazarus, Bernard Rosner, Jing Ma.
+URL: https://github.com/cran/powerSurvEpi
 Maintainer: Weiliang Qiu <weiliang.qiu@gmail.com>
 Depends: R (>= 3.6.0)
 Imports: stats, survival, pracma
