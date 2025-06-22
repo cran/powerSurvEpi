@@ -25,7 +25,9 @@ export(
        ssizeCT.default, 
        ssizeCT,
        power.stratify,
-       ssize.stratify
+       ssize.stratify,
+       powerWelchT,
+       ssizeWelchT
       ) 
 
 importFrom(stats,
@@ -37,6 +39,8 @@ importFrom(stats,
            rnorm,
            var
           )
+
+importFrom("stats", "pt", "qt")
 
 importFrom("stats", "uniroot")
 

@@ -1,10 +1,12 @@
-1ac3e9e44ed9333e7017685829d3364b *DESCRIPTION
-4f255a1568d69f085b3de63c501a2ecb *NAMESPACE
-5cf1df291ee5c18f9c9078732d92b7d0 *NEWS
+6cca236cccf400b5b14b3b16a6ab7b32 *DESCRIPTION
+e7772689689b1b49a0af81743c82b2c6 *NAMESPACE
+60778a98cf75c3d44a2436d7febcf848 *NEWS
 0a4575c21621d59e06ef6b291ed1ccd2 *R/power.stratify.R
 b7b7c2d9a3342da420d2d144206a7479 *R/powerCT.R
 083831313949cd2876ade7617b4de9e9 *R/powerConLogistic.R
 50c2266266745200e936aff9548b8e3f *R/powerEpi.R
+89c15f5a58d7fe853439d766bf077a84 *R/powerWelchT.R
+8231f913d87f5eeaf2d89d7d3fac3996 *R/ssizeWelchT.R
 02bb58f7e52d78080e48840ac732dca6 *data/Oph.csv.gz
 800f0b83a1a6cfaaf3fb9fd06af875e0 *data/Oph.rda
 0a05712b2f35b779e90b8f5d12bdc5db *man/Oph.Rd
@@ -24,6 +26,7 @@ ff39be231653fd4107cacf2f5e323a32 *man/powerEpiCont.default.Rd
 99fbdb3b8d4cd05cb115ff72f666c07a *man/powerEpiInt.default0.Rd
 148219543832c7c2616aa7b0bc6fe8d0 *man/powerEpiInt.default1.Rd
 24373f55ad5f61a078b4feba4949f240 *man/powerEpiInt2.Rd
+418b2a0d6b7be013644e1151bcfbf4b7 *man/powerWelchT.Rd
 1d64a54dff612fa8bf6464c5945ac17e *man/ssize.stratify.Rd
 84574bad0ca0217b6e10fe57a9a388b9 *man/ssizeCT.Rd
 481e04c23fc60f6b2e19459b635d6819 *man/ssizeCT.default.Rd
@@ -35,3 +38,4 @@ bbe4091e70337dc62bbd2bdf70e6f885 *man/ssizeEpiCont.default.Rd
 c59663933ea89872f6449768e0ac2a81 *man/ssizeEpiInt.default0.Rd
 0df0d44b72a4daa7c89420797b431339 *man/ssizeEpiInt.default1.Rd
 f0ec4b01d782e993f37a2b8960a5c416 *man/ssizeEpiInt2.Rd
+b5fef4ab2b4a5089432c337b96237676 *man/ssizeWelchT.Rd
